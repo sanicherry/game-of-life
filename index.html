@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Game of Life by Sandra Brink</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			main {
+				margin: 0 auto;
+				width: 100%;
+				max-width: 320px;
+			}
+			#playground {
+				height: 320px;
+				width: 320px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Conways Game of Life</h1>
+			<canvas id="playground" width="320" height="320" /></canvas>
+			<p>
+				<input type="button" value="start" onclick="breakvar = false; gameLoop();" />
+				<input type="button" value="stop" onclick="breakvar = true" />
+			</p>
+		</main>
+		<script src="assets/scripts/game_of_life.js"></script>
+		<script>
+			
+			var breakvar = false;
+			var color = 'green';
+			var gridWidth = 320;
+			var theGrid = createArray(gridWidth);
+			var mirrorGrid = createArray(gridWidth);
+			var canvas = document.getElementById('playground');
+			var ctx = canvas.getContext('2d');
+
+			createRandomPopulation();
+			gameLoop();
+		</script>
+	</body>
+</html>
