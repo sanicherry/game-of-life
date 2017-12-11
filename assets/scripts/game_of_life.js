@@ -45,7 +45,6 @@ function fillPlayground() {
     for(var j = 0; j < theGrid.length; j++) {
         for(var k = 0; k < theGrid[j].length; k++) {
             if(theGrid[j][k] === 1) {
-                ctx.fillstyle = 'green';
                 ctx.fillRect(j, k, 1, 1);
             }
         }
@@ -100,7 +99,7 @@ function updatePlayground() {
 }
 
 function changeColor(color) {
-    console.log(color);
+    ctx.fillStyle = color;
 }
 
 /**

@@ -20,6 +20,7 @@
 				height: 320px;
 				width: 320px;
 				border: 1px solid #000;
+				background-color: #dddddd;
 			}
 		</style>
 	</head>
@@ -31,6 +32,7 @@
 				<input type="button" value="start" onclick="breakvar = false; gameLoop();" />
 				<input type="button" value="stop" onclick="breakvar = true" />
 				<input type="button" value="restart" onclick="breakvar = false; restartGameLoop();"/>
+				<input type="color" onchange="changeColor(value)" value="#0000FF"/>
 			</p>
 		</main>
 		<script src="assets/scripts/game_of_life.js"></script>
@@ -43,6 +45,7 @@
 			var mirrorGrid = createArray(gridWidth);
 			var canvas = document.getElementById('playground');
 			var ctx = canvas.getContext('2d');
+			ctx.fillStyle = "#0000FF";
 
 			createRandomPopulation();
 			//gameLoop();
