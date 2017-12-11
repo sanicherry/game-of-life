@@ -10,29 +10,42 @@
 			main {
 				margin: 0 auto;
 				width: 100%;
-				max-width: 320px;
-			}
-			h1 {
-				margin: 10px auto;
-				width: 400px;
+				max-width: 322px;
+				text-align: center;
 			}
 			#playground {
 				height: 320px;
 				width: 320px;
 				border: 1px solid #000;
-				background-color: #dddddd;
+				background-color: #eee;
+				margin-bottom: 10px;
 			}
+            input {
+                padding: 5px 15px;
+                color: #0099FF;
+                background-color: white;
+                border: 2px solid #0000FF;
+                box-shadow: 3px 3px #ccc;
+                border-radius: 5px;
+            }
+            input:hover {
+                background-color: #ddd;
+            }
+            input:active {
+                background-color: #ddd;
+                box-shadow: 2px 2px #bbb;
+                transform: translateX(1px) translateY(1px);
 		</style>
 	</head>
 	<body>
-		<h1>Conways Game of Life</h1>
 		<main>
+            <h1>Conways Game of Life</h1>
 			<canvas id="playground" width="320" height="320" /></canvas>
 			<p>
 				<input type="button" value="start" onclick="breakvar = false; gameLoop();" />
 				<input type="button" value="stop" onclick="breakvar = true" />
 				<input type="button" value="restart" onclick="breakvar = false; restartGameLoop();"/>
-				<input type="color" onchange="changeColor(value)" value="#0000FF"/>
+				<input type="color" value="#0000FF" onchange="changeColor(value)" />
 			</p>
 		</main>
 		<script src="assets/scripts/game_of_life.js"></script>
