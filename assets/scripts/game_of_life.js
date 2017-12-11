@@ -114,4 +114,12 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
+function restartGameLoop() {
+    ctx.clearRect(0, 0, gridWidth, gridWidth);
+    var theGrid = createArray(gridWidth);
+	var mirrorGrid = createArray(gridWidth);
+	createRandomPopulation();
+	gameLoop();
+}
+
 

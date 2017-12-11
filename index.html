@@ -12,6 +12,10 @@
 				width: 100%;
 				max-width: 320px;
 			}
+			h1 {
+				margin: 10px auto;
+				width: 400px;
+			}
 			#playground {
 				height: 320px;
 				width: 320px;
@@ -20,12 +24,13 @@
 		</style>
 	</head>
 	<body>
+		<h1>Conways Game of Life</h1>
 		<main>
-			<h1>Conways Game of Life</h1>
 			<canvas id="playground" width="320" height="320" /></canvas>
 			<p>
 				<input type="button" value="start" onclick="breakvar = false; gameLoop();" />
 				<input type="button" value="stop" onclick="breakvar = true" />
+				<input type="button" value="restart" onclick="breakvar = false; restartGameLoop();"/>
 			</p>
 		</main>
 		<script src="assets/scripts/game_of_life.js"></script>
@@ -40,7 +45,7 @@
 			var ctx = canvas.getContext('2d');
 
 			createRandomPopulation();
-			gameLoop();
+			//gameLoop();
 		</script>
 	</body>
 </html>
