@@ -14,7 +14,7 @@ function createArray(rows) {
 }
 
 /**
- * 
+ * printing the Grid to the console for debugging
  */
 function printGridToConsole() {
     for(var u = 0; u < theGrid.length; u++) {
@@ -27,7 +27,7 @@ function printGridToConsole() {
 }
 
 /**
- * 
+ * creates the grid with random postions for cells
  */
 function createRandomPopulation() {
     for(var h = 5; h < theGrid.length - 5; h++) {
@@ -37,7 +37,7 @@ function createRandomPopulation() {
 }
 
 /**
- * 
+ * clears the canvas and refills it with living cells
  */
 function fillPlayground() {
     ctx.clearRect(0, 0, gridWidth, gridWidth);
@@ -52,14 +52,14 @@ function fillPlayground() {
 }
 
 /**
- * 
+ * checks living cells around one cell in the grid and updates mirror grid
+ * transfer cells from mirrorGrid into theGrid
  */
 function updatePlayground() {
     for(var l = 1; l < theGrid.length - 1; l++) {
         for(var m = 1; m < theGrid[l].length - 1; m++) {
             var sumLivingCells = 0;
             sumLivingCells += theGrid[l - 1][m - 1];
-            
             sumLivingCells += theGrid[l][m - 1];
             sumLivingCells += theGrid[l + 1][m - 1];
 
@@ -99,14 +99,14 @@ function updatePlayground() {
 }
 
 /**
- *
+ * change color of the cells
  */
 function changeColor(color) {
     ctx.fillStyle = color;
 }
 
 /**
- * 
+ * starts and continues the game of life
  */
 function gameLoop() {
     fillPlayground();
@@ -117,7 +117,7 @@ function gameLoop() {
 }
 
 /**
- *
+ * restarts the game of life with new Grid
  */
 function restartGameLoop() {
     ctx.clearRect(0, 0, gridWidth, gridWidth);
