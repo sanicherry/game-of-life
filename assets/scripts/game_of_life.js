@@ -34,6 +34,7 @@ function createRandomPopulation() {
         for(var i = 5; i < theGrid[h].length - 5; i++) 
             theGrid[h][i] = Math.round(Math.random());
     }
+    gameLoop()
 }
 
 /**
@@ -119,12 +120,73 @@ function gameLoop() {
 /**
  * restarts the game of life with new Grid
  */
-function restartGameLoop() {
+function restartGameLoop(halfGrid) {
     ctx.clearRect(0, 0, gridWidth, gridWidth);
     var theGrid = createArray(gridWidth);
 	var mirrorGrid = createArray(gridWidth);
-	createRandomPopulation();
-	gameLoop();
+	if (circle === true) {
+	    circleOfLife(halfGrid);
+	} else {
+	    createRandomPopulation();
+	}
+}
+
+/*
+* implementing the circle
+*/
+function circleOfLife(halfGrid) {
+    for(var h = 5; h < theGrid.length - 5; h++) {
+        for(var i = 5; i < theGrid[h].length - 5; i++)
+            theGrid[h][i] = 0;
+    }
+    theGrid[halfGrid - 3][halfGrid - 6] = 1;
+    theGrid[halfGrid - 2][halfGrid - 6] = 1;
+    theGrid[halfGrid - 1][halfGrid - 7] = 1;
+    theGrid[halfGrid][halfGrid - 7] = 1;
+    theGrid[halfGrid + 1][halfGrid - 7] = 1;
+    theGrid[halfGrid + 2][halfGrid - 6] = 1;
+    theGrid[halfGrid - 3][halfGrid - 6] = 1;
+
+    theGrid[halfGrid - 5][halfGrid - 4] = 1;
+    theGrid[halfGrid - 6][halfGrid - 3] = 1;
+    theGrid[halfGrid - 6][halfGrid - 2] = 1;
+    theGrid[halfGrid - 7][halfGrid - 1] = 1;
+    theGrid[halfGrid - 7][halfGrid] = 1;
+    theGrid[halfGrid - 7][halfGrid + 1] = 1;
+    theGrid[halfGrid - 6][halfGrid + 2] = 1;
+    theGrid[halfGrid - 6][halfGrid + 3] = 1;
+    theGrid[halfGrid - 5][halfGrid + 4] = 1;
+
+    theGrid[halfGrid + 5][halfGrid - 4] = 1;
+    theGrid[halfGrid + 6][halfGrid - 3] = 1;
+    theGrid[halfGrid + 6][halfGrid - 2] = 1;
+    theGrid[halfGrid + 7][halfGrid - 1] = 1;
+    theGrid[halfGrid + 7][halfGrid] = 1;
+    theGrid[halfGrid + 7][halfGrid + 1] = 1;
+    theGrid[halfGrid + 6][halfGrid + 2] = 1;
+    theGrid[halfGrid + 6][halfGrid + 3] = 1;
+    theGrid[halfGrid + 5][halfGrid + 4] = 1;
+
+    theGrid[halfGrid - 3][halfGrid + 6] = 1;
+    theGrid[halfGrid - 2][halfGrid + 6] = 1;
+    theGrid[halfGrid - 1][halfGrid + 7] = 1;
+    theGrid[halfGrid][halfGrid + 7] = 1;
+    theGrid[halfGrid + 1][halfGrid + 7] = 1;
+    theGrid[halfGrid + 2][halfGrid + 6] = 1;
+    theGrid[halfGrid - 3][halfGrid + 6] = 1;
+
+    /*theGrid[halfGrid][halfGrid] = 1;
+    theGrid[halfGrid - 1][halfGrid - 1] = 1;
+    theGrid[halfGrid - 2][halfGrid - 2] = 1;
+    theGrid[halfGrid - 1][halfGrid + 1] = 1;
+    theGrid[halfGrid - 2][halfGrid + 2] = 1;
+    theGrid[halfGrid + 1][halfGrid + 1] = 1;
+    theGrid[halfGrid + 2][halfGrid + 2] = 1;
+    theGrid[halfGrid + 1][halfGrid - 1] = 1;
+    theGrid[halfGrid + 2][halfGrid - 2] = 1;*/
+
+    fillPlayground();
+    //gameLoop();
 }
 
 
